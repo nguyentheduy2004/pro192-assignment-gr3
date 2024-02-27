@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Schedule</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        textarea {
+            width: 100%;
+            height: 100%;
+            border: none;
+            resize: none;
+        }
+        .add-button {
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body >
+    <header>
+        <h1>Work Schedule</h1>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Back</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <table id="schedule-table">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Họ và Tên</th>
+                    <th>ID</th>
+                    <th>Phone Number</th>
+                    <th>Birthday</th>
+                    <th>Công việc</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><textarea></textarea></td>
+                    <td><textarea></textarea></td>
+                    <td><textarea></textarea></td>
+                    <td><textarea></textarea></td>
+                    <td><input type="text" class="date-input"></td>
+                    <td><textarea></textarea></td>
+
+                
+                </tr>
+             
+            </tbody>
+        </table>
+        <button class="add-button" id="add-row">Add Row</button>
+        <button class="add-button" id="add-column">Add Column</button>
+        <button class="add-button" id="add-checkbox">Add Checkbox</button> <!-- Thêm nút Add Checkbox -->
+    </main>
+    <script src="script.js"></script>
+    <script>
+
+        document.getElementById('add-row').addEventListener('click', function() {
+            const table = document.getElementById('schedule-table').getElementsByTagName('tbody')[0];
+            const newRow = table.insertRow();
+            for (let i = 0; i < table.rows[0].cells.length; i++) {
+                const cell = newRow.insertCell();
+                cell.innerHTML = '<textarea></textarea>';
+            }
+        });
+
+        document.getElementById('add-column').addEventListener('click', function() {
+            const table = document.getElementById('schedule-table');
+            const headerRow = table.rows[0];
+            const newHeaderCell = document.createElement('th');
+            newHeaderCell.textContent = 'New Column';
+            headerRow.appendChild(newHeaderCell);
+
+            const tbody = table.getElementsByTagName('tbody')[0];
+            for (let i = 0; i < tbody.rows.length; i++) {
+                const row = tbody.rows[i];
+                const cell = row.insertCell();
+                cell.innerHTML = '<textarea></textarea>';
+            }
+            
+        });
+    </script>
+</body>
+</html>

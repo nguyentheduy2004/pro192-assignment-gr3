@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body > //class="car-list-background"
+    <header>
+        <h1>Car List</h1>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="car-list.html">Car List</a></li>
+                <li><a href="#" id="logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="car-list">
+            <h2>Car List</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Car ID</th>
+                        <th>Make</th>
+                        <th>Model</th>
+                        <th>Year</th>
+                        <th>Check-in</th>
+                    </tr>
+                </thead>
+                <tbody id="car-list-table">
+                
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('logout').addEventListener('click', function(event) {
+            event.preventDefault();
+            window.location.href = 'index.html';
+        });
+        window.onload = function() {
+            updateCarList();
+        };
+    </script>
+</body>
+</html>
